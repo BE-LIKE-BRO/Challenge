@@ -3,8 +3,9 @@ resource "aws_sns_topic" "sns_topic" {
 }
 
 
-resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
+resource "aws_sns_topic_subscription" "sns_subscription" {
+  for_each = toset(var.emails)
   topic_arn = aws_sns_topic.sns_topic.arn
   protocol  = "email"
-  endpoint  = "ayoolacoul27@gmail.com"
+  endpoint  = each.value
 }

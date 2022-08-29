@@ -146,4 +146,11 @@ variable "policies" {
   ]
 }
 
+variable "emails" {
+  default = [
+    "ayoolacoul27@gmail.com",
+    "dunknny@yahoo.com"
+  ]
+}
+
 
