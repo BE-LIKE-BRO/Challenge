@@ -29,16 +29,16 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
-            input {
-                message "Do you want to apply this change?"
-            }
-            steps {
-                dir("Terraform") {
-                    sh "terraform apply"
-                }
-            }
-        }
+        // stage('Terraform Apply') {
+        //     input {
+        //         message "Do you want to apply this change?"
+        //     }
+        //     steps {
+        //         dir("Terraform") {
+        //             sh "terraform apply"
+        //         }
+        //     }
+        // }
 
         stage('S3 Sync') {
             steps {
