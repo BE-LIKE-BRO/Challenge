@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        // stage('terraform plan') {
+        //     steps {
+        //         sh "aws s3 sync --delete ./resume-site/* s3://blb-main-bucket"
+        //     }
+        // }
+
+        stage('S3 Sync') {
             steps {
-                echo 'Hello World'
+                sh "aws s3 sync --delete ./resume-site/* s3://blb-main-bucket"
             }
         }
     }
